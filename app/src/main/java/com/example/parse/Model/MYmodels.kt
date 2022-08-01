@@ -1,0 +1,32 @@
+package com.example.parse.Model
+
+data class MYmodels(
+    val acceptedBy: Any,
+    val address: String,
+    val author: String,
+    val category: String,
+    val description: Any,
+    val endDate: String,
+    val endDateMilliseconds: Long,
+    val equipment: Equipment,
+    val equipmentId: String,
+    val filters: List<Filter>,
+    val hasDriver: Boolean,
+    val id: String,
+    val internalTransportations: InternalTransportations,
+    val isDummy: Boolean,
+    val locations: Locations,
+    val metaInfo: Any,
+    val organization: String,
+    val overwriteDate: Any,
+    val projectId: String,
+    val prolongDates: List<Any>,
+    val releaseDates: List<Any>,
+    val rentalDescription: Any,
+    val requestedBy: String,
+    val startDate: String,
+    val startDateMilliseconds: Long,
+    val status: String,
+    val type: String,
+    val warehouseId: Any
+)

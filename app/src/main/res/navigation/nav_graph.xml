@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/secondDestination">
+
+    <fragment
+        android:id="@+id/secondDestination"
+        android:name="com.example.parse.SecondDestination"
+        android:label="fragment_second_destination"
+        tools:layout="@layout/fragment_second_destination" />
+</navigation>
