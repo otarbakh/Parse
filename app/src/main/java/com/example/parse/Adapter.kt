@@ -12,7 +12,6 @@ import com.example.parse.databinding.DetailsBinding
 class Adapter :
     ListAdapter<HomeModel.Content, Adapter.HomeModelViewHolder>(DiffCallBack()) {
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ): HomeModelViewHolder {
@@ -25,13 +24,12 @@ class Adapter :
         holder.bindData()
     }
 
-
     inner class HomeModelViewHolder(private val binding: DetailsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindData() {
             val homeCard = getItem(adapterPosition)
             binding.apply {
-                binding.tvTitleKA.text = "${homeCard.titleKA}"
+                binding.tvTitleKA.text = "${homeCard.titleKA.toString()}"
                 binding.tvDescriptionKA.text = homeCard.descriptionKA
                 binding.tvPublishDate.text =
                     "განცხადების დადების თარიღი: \n${homeCard.publishDate.toString()}"

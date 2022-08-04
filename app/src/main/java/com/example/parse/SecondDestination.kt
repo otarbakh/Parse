@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 class SecondDestination : Fragment() {
     private var _binding: FragmentSecondDestinationBinding? = null
     private val binding get() = _binding!!
-    private val adapter: Adapter by lazy { Adapter() }
+    private val homeAdapter: Adapter by lazy { Adapter() }
 
     val viewModel:SecondDestinationViewModel by viewModels()
 
@@ -32,7 +32,7 @@ class SecondDestination : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.data.collect {
-                    adapter.submitList(it)
+                    homeAdapter.submitList(it)
                 }
             }
         }
@@ -40,7 +40,7 @@ class SecondDestination : Fragment() {
 
     private fun setupRecycler() {
         binding.recycler.apply {
-            adapter = adapter
+            adapter = homeAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         }
         viewModel.getHomesData()
