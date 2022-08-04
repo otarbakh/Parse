@@ -1,25 +1,22 @@
 package com.example.parse
-
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.parse.Model.File
-import com.example.parse.Model.MYmodels
+import com.example.parse.Model.HomeModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SecondDestinationViewModel : ViewModel() {
-    fun getMYmodel() {
-        viewModelScope.launch {
-            val myResponse = RetrofitBuilder.getVehicleService().getVehicleModel()
+    private val _data = MutableStateFlow<List<HomeModel.Content>>(listOf())
+    val data = _data.asStateFlow()
 
-            if (myResponse.isSuccessful){
-                val response:File? = myResponse.body()
-
-                Log.d("oto","${response?.size}")
-            }
-            else{
-                val errorResponse = myResponse.errorBody()
-                Log.d("vaime viqrashebi","$errorResponse")
+    fun getHomesData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = RetrofitBuilder.getVehicleService().getVehicleModel()
+            if(response.isSuccessful && response.body() != null){
+                val data = response.body()
+                _data.emit(data?.content?: emptyList())
             }
         }
     }

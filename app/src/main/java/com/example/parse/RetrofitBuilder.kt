@@ -1,16 +1,18 @@
 package com.example.parse
 
-import com.example.parse.Model.File
-import com.example.parse.Model.MYmodels
+
+import com.example.parse.Model.HomeModel
+
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 
+
 object RetrofitBuilder {
 
-    private const val BASE_URL = "https://run.mocky.io/v3/"
+    private const val BASE_URL = "https://run.mocky.io/"
 
     val vehicleBuilder by lazy{
         Retrofit.Builder()
@@ -21,6 +23,6 @@ object RetrofitBuilder {
 }
 
 interface VehicleApi {
-    @GET("3588163c-a9c8-488c-af9a-534b392e7128")
-    suspend fun getVehicleModel(): Response<File>
+    @GET("v3/f4864c66-ee04-4e7f-88a2-2fbd912ca5ab")
+    suspend fun getVehicleModel(): Response<HomeModel>
 }
