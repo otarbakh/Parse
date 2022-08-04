@@ -41,7 +41,10 @@ class Adapter :
     }
 
     class DiffCallBack : DiffUtil.ItemCallback<HomeModel.Content>() {
-        override fun areItemsTheSame(oldItem: HomeModel.Content, newItem: HomeModel.Content): Boolean {
+        override fun areItemsTheSame(
+            oldItem: HomeModel.Content,
+            newItem: HomeModel.Content
+        ): Boolean {
             return oldItem.titleKA == newItem.titleKA
         }
 

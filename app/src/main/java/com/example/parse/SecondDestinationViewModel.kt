@@ -1,4 +1,5 @@
 package com.example.parse
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.parse.Model.HomeModel
@@ -13,10 +14,10 @@ class SecondDestinationViewModel : ViewModel() {
 
     fun getHomesData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = RetrofitBuilder.getVehicleService().getVehicleModel()
-            if(response.isSuccessful && response.body() != null){
+            val response = RetrofitBuilder.getHomeModel().getHomeModel()
+            if (response.isSuccessful && response.body() != null) {
                 val data = response.body()
-                _data.emit(data?.content?: emptyList())
+                _data.emit(data?.content ?: emptyList())
             }
         }
     }
